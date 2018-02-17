@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -26,7 +27,9 @@ public class MongoFactoryClient {
 		
 		
 		/**Local mongo db connection*/
-		 mongoClient = new MongoClient("localhost", 27017);
+		
+		 MongoClientURI uri = new MongoClientURI("mongodb://heroku_92cq83nx:rajavardhan1@ds235418.mlab.com:35418/heroku_92cq83nx");
+		 mongoClient = new MongoClient(uri);
 		/** mongo db database name*/
 		
 		 database = mongoClient.getDatabase(dbname);
